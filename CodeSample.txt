@@ -1,0 +1,98 @@
+----------------------------Q1-----------------------------------
+
+The "this" keyword always points to the object that is calling a particular method. The type of "this" in an expression depends on the location in which the reference occurs.
+Example :
+
+class Parent  
+{  
+    show()  
+    {  
+        var x=10;  
+        alert("This is show method of Parent class " + x);  
+    }  
+}  
+class Child extends Parent  
+{  
+    display()  
+    {  
+        var y = 10;  
+        this.show();  
+        alert("This is display method of Child class " + y);  
+    }  
+}  
+window.onload = () =>  
+{  
+    var greeter = new Child();  
+    greeter.display();  
+};
+
+To solve problems with var declarations, ES6 introduced two new types of variable declarations in JavaScript, using the keywords let and const.
+
+Example :let employeeName = "Manju"; 
+------------------------------Q2----------------------------------
+
+function getFrequencyMap(string) {
+    var freqmap = {};
+    for (var i=0; i<string.length;i++) {
+        var character = string.charAt(i);
+        if (freqmap[character]) {
+           freqmap[character]++;
+        } else {
+           freqmap[character] = 1;
+        }
+    }
+    return freqmap;
+};
+
+-----------------------------Q3---------------------------------------
+function getKeys(input, array) {
+  Object.keys(input).forEach(function(key) {
+    array.push(key);
+    array = getKeys(input[key], array);
+  });
+  return array;
+}
+
+------------------------------Q4--------------------------------------
+1.
+
+function reverseWord(string){
+return string.split("").reverse().join("").split(" ").reverse().join(" ")  
+}
+
+2. 
+
+function reverseWord(string){
+    var strlen = string.length, result = "", reverseStr = "", reverseStrArr = [];
+  for(var i = strlen-1; i >= 0; i--){
+    reverseStr +=  myStr[i];
+  }
+
+    for(var j = 0; j < strlen; j++){
+    if(reverseStr[j] == " "){
+      reverseStrArr.push(result);
+      result = "";
+    }else{
+      result += reverseStr[j];
+      if(j + 1 == strlen){
+        reverseStrArr.push(result);
+        result = "";
+      }
+    }
+  }
+
+  for(var k=reverseStrArr.length - 1; k >= 0; k--){
+    result += reverseStrArr[k] + " "
+  }
+}
+------------------------------Q5--------------------------------------
+function removeDuplicate(array){
+        var uniqueKey = [];
+        for(i=0; i < array.length; i++){
+            if(uniqueKey.indexOf(array[i]) === -1) {
+                uniqueKey.push(array[i]);
+            }
+        }
+        return uniqueKey;
+    }
+----------------------------------------------------------------------
